@@ -25,7 +25,12 @@ export default function LoginPage() {
         padding: "40px 24px",
         background: "linear-gradient(135deg, #f6f4ff, #fff5ec)",
       }}>
-        <SignIn />
+        <SignIn
+          routing="path"
+          path="/login"
+          signInUrl="/login"
+          afterSignInUrl="/student-dashboard"
+        />
       </div>
     </>
   );
