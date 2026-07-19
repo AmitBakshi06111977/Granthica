@@ -3,6 +3,8 @@ import { SignIn } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function LoginPage() {
+  const hasClerkKey = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+
   return (
     <>
       <header className="site-header">
@@ -25,12 +27,19 @@ export default function LoginPage() {
         padding: "40px 24px",
         background: "linear-gradient(135deg, #f6f4ff, #fff5ec)",
       }}>
-        <SignIn
-          routing="path"
-          path="/login"
-          signInUrl="/login"
-          forceRedirectUrl="/student-dashboard"
-        />
+        {hasClerkKey ? (
+          <SignIn routing="path" path="/login" />
+        ) : (
+          <div className="card" style={{ width: "100%", maxWidth: "420px", padding: "36px", textAlign: "center" }}>
+            <h2 style={{ marginBottom: "12px" }}>Sign-in coming soon</h2>
+            <p style={{ color: "var(--rg-muted)", fontSize: "14px" }}>
+              We're setting up authentication. Please check back shortly.
+            </p>
+            <Link href="/discover" className="btn btn-primary btn-block" style={{ marginTop: "20px" }}>
+              Browse books
+            </Link>
+          </div>
+        )}
       </div>
     </>
   );
