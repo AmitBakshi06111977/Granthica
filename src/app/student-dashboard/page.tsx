@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function StudentDashboard() {
@@ -7,7 +8,7 @@ export default function StudentDashboard() {
       {/* Sidebar */}
       <aside className="app-side">
         <Link href="/" className="brand" style={{ padding: "0 8px 18px" }}>
-          <div className="mark">G</div>
+          <Image src="/granthica-icon.png" alt="Granthica" width={28} height={28} style={{ borderRadius: "8px" }} />
           <div>Granthica</div>
         </Link>
 

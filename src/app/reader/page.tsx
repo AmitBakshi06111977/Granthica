@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 
 const chapters = [
@@ -17,9 +18,8 @@ export default function ReaderPage() {
       <header className="site-header">
         <div className="container">
           <div className="bar">
-            <Link href="/student-dashboard" className="brand">
-              <div className="mark">G</div>
-              <div>Granthica<small>Learn from every book</small></div>
+            <Link href="/student-dashboard" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+              <Image src="/granthica-logo.png" alt="Granthica" width={120} height={34} style={{ objectFit: "contain" }} />
             </Link>
             <div style={{ flex: 1 }} />
             <div style={{ fontSize: "14px", color: "var(--rg-muted)" }}>

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function PricingPage() {
@@ -7,7 +8,9 @@ export default function PricingPage() {
       <header className="site-header">
         <div className="container">
           <div className="bar">
-            <Link href="/" className="brand"><div className="mark">G</div><div>Granthica<small>Learn from every book</small></div></Link>
+            <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+              <Image src="/granthica-logo.png" alt="Granthica" width={140} height={40} style={{ objectFit: "contain" }} />
+            </Link>
             <div style={{ flex: 1 }} />
             <nav className="nav-links">
               <Link href="/discover">Discover</Link>

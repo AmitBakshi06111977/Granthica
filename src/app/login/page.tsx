@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -10,7 +11,9 @@ export default function LoginPage() {
       <header className="site-header">
         <div className="container">
           <div className="bar">
-            <Link href="/" className="brand"><div className="mark">G</div><div>Granthica<small>Learn from every book</small></div></Link>
+            <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+              <Image src="/granthica-logo.png" alt="Granthica" width={140} height={40} style={{ objectFit: "contain" }} />
+            </Link>
             <div style={{ flex: 1 }} />
             <Link href="/discover" style={{ color: "var(--rg-muted)", fontSize: "14px" }}>← Back to Granthica</Link>
           </div>

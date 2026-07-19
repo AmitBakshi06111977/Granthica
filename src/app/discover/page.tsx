@@ -1,35 +1,34 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 
 const books = [
-  { title: "Discovery of India", author: "Jawaharlal Nehru", edition: "1st Ed", pages: 540, language: "Hindi, English, 6 more", cover: "cover-1", coverTitle: "Discovery of India", coverMeta: "Jawaharlal Nehru", badge: "Free", badgeClass: "badge-free", exam: "General", subject: "History" },
-  { title: "Indian Polity", author: "M. Laxmikanth", edition: "6th Ed", pages: 820, language: "English, Hindi", cover: "cover-2", coverTitle: "Indian Polity", coverMeta: "M. Laxmikanth", badge: "Free", badgeClass: "badge-free", exam: "UPSC / State PSC", subject: "Polity" },
-  { title: "NCERT History", author: "NCERT · Class 12", edition: "2023", pages: 380, language: "8 languages", cover: "cover-3", coverTitle: "NCERT History", coverMeta: "Themes in Indian History", badge: "Free", badgeClass: "badge-free", exam: "UPSC / Boards", subject: "History" },
-  { title: "Premchand Stories", author: "Munshi Premchand", edition: "Collection", pages: 290, language: "Hindi & English", cover: "cover-4", coverTitle: "Premchand", coverMeta: "Selected Stories", badge: "Free", badgeClass: "badge-free", exam: "General", subject: "Literature" },
-  { title: "Science & Technology", author: "NCERT · Class 10", edition: "2023", pages: 420, language: "8 languages", cover: "cover-5", coverTitle: "Science & Tech", coverMeta: "NCERT Class 10", badge: "Free", badgeClass: "badge-free", exam: "Boards", subject: "Science" },
-  { title: "Geography of India", author: "Majid Husain", edition: "7th Ed", pages: 610, language: "English, Hindi", cover: "cover-6", coverTitle: "Geography", coverMeta: "Majid Husain", badge: "Free", badgeClass: "badge-free", exam: "UPSC", subject: "Geography" },
-  { title: "Environment & Ecology", author: "NCERT", edition: "2022", pages: 310, language: "English, Hindi", cover: "cover-1", coverTitle: "Environment", coverMeta: "NCERT", badge: "Free", badgeClass: "badge-free", exam: "UPSC / NEET", subject: "Environment" },
-  { title: "Physical Geography", author: "Savindra Singh", edition: "2nd Ed", pages: 480, language: "English, Hindi", cover: "cover-2", coverTitle: "Physical Geo", coverMeta: "Savindra Singh", badge: "Free", badgeClass: "badge-free", exam: "UPSC", subject: "Geography" },
+  { title: "Discovery of India", author: "Jawaharlal Nehru", edition: "1st Ed", pages: 540, language: "Hindi, English, 6 more", gradient: "linear-gradient(135deg, #0a1f4d, #0a66c2)", coverTitle: "Discovery of India", coverMeta: "Jawaharlal Nehru", badge: "Free", badgeClass: "badge-free", exam: "General", subject: "History" },
+  { title: "Indian Polity", author: "M. Laxmikanth", edition: "6th Ed", pages: 820, language: "English, Hindi", gradient: "linear-gradient(135deg, #0a8bc7, #38bdf8)", coverTitle: "Indian Polity", coverMeta: "M. Laxmikanth", badge: "Free", badgeClass: "badge-free", exam: "UPSC / State PSC", subject: "Polity" },
+  { title: "NCERT History", author: "NCERT · Class 12", edition: "2023", pages: 380, language: "8 languages", gradient: "linear-gradient(135deg, #084a8e, #0066d6)", coverTitle: "NCERT History", coverMeta: "Themes in Indian History", badge: "Free", badgeClass: "badge-free", exam: "UPSC / Boards", subject: "History" },
+  { title: "Premchand Stories", author: "Munshi Premchand", edition: "Collection", pages: 290, language: "Hindi & English", gradient: "linear-gradient(135deg, #5b4bff, #ff7a59)", coverTitle: "Premchand", coverMeta: "Selected Stories", badge: "Free", badgeClass: "badge-free", exam: "General", subject: "Literature" },
+  { title: "Science & Technology", author: "NCERT · Class 10", edition: "2023", pages: 420, language: "8 languages", gradient: "linear-gradient(135deg, #0d9b7c, #38bdf8)", coverTitle: "Science", coverMeta: "NCERT Class 10", badge: "Free", badgeClass: "badge-free", exam: "Boards", subject: "Science" },
+  { title: "Geography of India", author: "Majid Husain", edition: "7th Ed", pages: 610, language: "English, Hindi", gradient: "linear-gradient(135deg, #0a66c2, #5b4bff)", coverTitle: "Geography", coverMeta: "Majid Husain", badge: "Free", badgeClass: "badge-free", exam: "UPSC", subject: "Geography" },
+  { title: "Environment & Ecology", author: "NCERT", edition: "2022", pages: 310, language: "English, Hindi", gradient: "linear-gradient(135deg, #0a1f4d, #0d9b7c)", coverTitle: "Environment", coverMeta: "NCERT", badge: "Free", badgeClass: "badge-free", exam: "UPSC / NEET", subject: "Environment" },
+  { title: "Physical Geography", author: "Savindra Singh", edition: "2nd Ed", pages: 480, language: "English, Hindi", gradient: "linear-gradient(135deg, #0a8bc7, #0d9b7c)", coverTitle: "Physical Geo", coverMeta: "Savindra Singh", badge: "Free", badgeClass: "badge-free", exam: "UPSC", subject: "Geography" },
 ];
 
 export default function DiscoverPage() {
   return (
     <>
       {/* Header */}
-      <header className="site-header">
+      <header style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(255,255,255,.92)", backdropFilter: "saturate(140%) blur(10px)", borderBottom: "1px solid var(--rg-line)" }}>
         <div className="container">
-          <div className="bar">
-            <Link href="/" className="brand">
-              <div className="mark">G</div>
-              <div>Granthica<small>Learn from every book</small></div>
+          <div style={{ display: "flex", alignItems: "center", gap: "24px", height: "68px" }}>
+            <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+              <Image src="/granthica-logo.png" alt="Granthica" width={140} height={40} style={{ objectFit: "contain" }} />
             </Link>
             <div style={{ flex: 1 }} />
-            <nav className="nav-links">
-              <Link href="/discover" className="active">Discover</Link>
-              <Link href="/study-studio">Study Studio</Link>
-              <Link href="/login">Sign in</Link>
+            <nav style={{ display: "flex", gap: "6px", alignItems: "center" }}>
+              <Link href="/discover" className="active" style={{ padding: "8px 12px", borderRadius: "8px", fontSize: "14px", color: "var(--rg-primary)", fontWeight: 500, textDecoration: "none", background: "var(--rg-primary-light)" }}>Discover</Link>
+              <Link href="/study-studio" style={{ padding: "8px 12px", borderRadius: "8px", fontSize: "14px", color: "var(--rg-ink-2)", fontWeight: 500, textDecoration: "none" }}>Study Studio</Link>
             </nav>
-            <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
+            <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
               <Link href="/login" className="btn btn-ghost btn-sm">Sign in</Link>
               <Link href="/student-dashboard" className="btn btn-primary btn-sm">My library →</Link>
             </div>
@@ -44,7 +43,7 @@ export default function DiscoverPage() {
           <h1 style={{ fontSize: "32px", marginBottom: "16px", color: "var(--rg-ink)" }}>Discover books</h1>
           <p style={{ color: "var(--rg-muted)", marginBottom: "20px" }}>Browse trusted books for exams, learning, and curiosity. All free.</p>
           <div className="search-shell">
-            <input className="input" placeholder="Search books, authors, topics..." style={{ border: 0, boxShadow: "none", padding: "14px 16px", fontSize: "15px", flex: 1 }} />
+            <input className="input" placeholder="Search books, authors, topics..." style={{ border: 0, boxShadow: "none", padding: "14px 16px", fontSize: "15px", flex: 1, background: "transparent" }} />
             <button className="btn btn-primary">Search</button>
           </div>
           <div className="filter-bar">
@@ -99,7 +98,7 @@ export default function DiscoverPage() {
             <div className="book-grid">
               {books.map((book, i) => (
                 <Link key={i} href="/book-detail" className="book-card">
-                  <div style={{ aspectRatio: "3/4", borderRadius: "10px", padding: "16px", display: "flex", flexDirection: "column", justifyContent: "space-between", color: "white", fontWeight: 700 }} className={book.cover}>
+                  <div style={{ aspectRatio: "3/4", borderRadius: "10px", padding: "16px", display: "flex", flexDirection: "column", justifyContent: "space-between", background: book.gradient, color: "white", fontWeight: 700, minHeight: "200px" }}>
                     <div style={{ fontFamily: "'Source Serif Pro', Georgia, serif", fontSize: "20px", lineHeight: 1.1, fontWeight: 400 }}>{book.coverTitle}</div>
                     <div style={{ fontSize: "11px", opacity: 0.8 }}>{book.coverMeta}</div>
                   </div>
@@ -107,7 +106,7 @@ export default function DiscoverPage() {
                     <h4>{book.title}</h4>
                     <div className="by">{book.author}</div>
                     <div className="row-tags">
-                      <span className={`badge ${book.badgeClass}`}>{book.badge}</span>
+                      <span className="badge badge-free">{book.badge}</span>
                       <span className="badge">{book.subject}</span>
                     </div>
                   </div>
